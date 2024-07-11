@@ -1,17 +1,16 @@
 from django.urls import path, include
-# from .views import
+from .views import BlogAPIView, LikeAPIView, CommentAPIView
 from rest_framework import routers
 
 
 
-# router=routers.SimpleRouter()
-# router.register("food_detail", FoodDetailAPIView)
-# router.register("food_type", FoodTypelAPIView)
-# router.register("made_food", Made_of_FoodAPIView)
-# router.register("comment_food", CommentDetailAPIView)
+router=routers.SimpleRouter()
+router.register("blog", BlogAPIView)
+router.register("likes", LikeAPIView)
+router.register("comment", CommentAPIView)
 
 urlpatterns = [
-    # path('api/v1/', include(router.urls)),
+    path('api/v1/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
     
     #### Djoser
